@@ -68,7 +68,13 @@ public class ALHeap {
      * Postcondition: Tree maintains heap property.
      *****************************************************/
     public void add( Integer addVal ) { 
-	
+	int index = _heap.size();
+	_heap.add(addVal); // put new element at the end
+	// swap element with leftmost element of the above level as long as leftmost is greater than addVal
+	while ( ((index-1) / 2) >= 0 && ( _heap.get((index-1) / 2) > addVal ) ) {
+	    swap( index, (index-1) / 2 );
+	    index = (index-1) / 2;
+	}
     } //O(n)
 
 
@@ -78,9 +84,8 @@ public class ALHeap {
      * Removes and returns least element in heap.
      * Postcondition: Tree maintains heap property.
      *****************************************************/
-    public Integer removeMin() 
-    {
-
+    public Integer removeMin() {
+	return null;
     }//O(?)
 
 
@@ -91,9 +96,8 @@ public class ALHeap {
      * -1 if no children, or if input pos is not in ArrayList
      * Postcondition: Tree unchanged
      *****************************************************/
-    private int minChildPos( int pos ) 
-    {
-
+    private int minChildPos( int pos ) {
+	return 0;
     }//O(?)
 
 
@@ -117,7 +121,7 @@ public class ALHeap {
     //main method for testing
     public static void main( String[] args ) {
 
-	/*--V--------------MOVE ME DOWN------------------V---
+
 
 	  ALHeap pile = new ALHeap();
 
@@ -141,7 +145,7 @@ public class ALHeap {
 	  System.out.println(pile);
 	  pile.add(9);
 	  System.out.println(pile);
-
+	/*--V--------------MOVE ME DOWN------------------V---
 	  System.out.println("removing " + pile.removeMin() + "...");
 	  System.out.println(pile);
 	  System.out.println("removing " + pile.removeMin() + "...");
