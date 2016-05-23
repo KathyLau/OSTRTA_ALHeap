@@ -20,9 +20,8 @@ public class ALHeap {
     /*****************************************************
      * default constructor  ---  inits empty heap
      *****************************************************/
-    public ALHeap() 
-    { 
-
+    public ALHeap() { 
+	_heap = new ArrayList<Integer>();
     }
 
 
@@ -33,10 +32,12 @@ public class ALHeap {
      * a) a level-order traversal of the tree (simple version)
      * b) ASCII representation of the tree (bit more complicated, much more fun)
      *****************************************************/
-    public String toString() 
-    { 
-
-    }//O(?)
+    public String toString() { 
+	String retStr = "";
+	for ( Integer i : _heap )
+	    retStr += i + " ";
+	return retStr;
+    }//O(n)
 
 
 
@@ -44,11 +45,9 @@ public class ALHeap {
      * boolean isEmpty()
      * Returns true if no meaningful elements in heap, false otherwise
      *****************************************************/
-    public boolean isEmpty() 
-    { 
-
+    public boolean isEmpty() { 
 	return _heap.isEmpty(); 
-    } //O(?)
+    } //O(n)
 
 
 
@@ -57,9 +56,9 @@ public class ALHeap {
      * Returns min value in heap
      * Postcondition: Heap remains unchanged.
      *****************************************************/
-    public Integer peekMin() 
-    { 
-    } //O(?)
+    public Integer peekMin() {
+	return _heap.get(0); // first element of the array is root, aka min
+    } //O(1)
 
 
 
@@ -68,10 +67,9 @@ public class ALHeap {
      * Inserts an element in the heap
      * Postcondition: Tree maintains heap property.
      *****************************************************/
-    public void add( Integer addVal ) 
-    { 
-
-    } //O(?)
+    public void add( Integer addVal ) { 
+	
+    } //O(n)
 
 
 
@@ -101,8 +99,7 @@ public class ALHeap {
 
 
     //************ aux helper fxns ***************
-    private Integer minOf( Integer a, Integer b ) 
-    {
+    private Integer minOf( Integer a, Integer b ) {
 	if ( a.compareTo(b) < 0 )
 	    return a;
 	else
@@ -110,8 +107,7 @@ public class ALHeap {
     }
 
     //swap for an ArrayList
-    private void swap( int pos1, int pos2 ) 
-    {
+    private void swap( int pos1, int pos2 ) {
 	_heap.set( pos1, _heap.set( pos2, _heap.get(pos1) ) );	
     }
     //********************************************
