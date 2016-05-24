@@ -100,7 +100,7 @@ public class ALHeap {
         while (pos < _heap.size()) {
           minPos = minChildPos(pos);
           if (minPos == -1) break;
-          else if (end.compareTo(_heap.get(minPos))< 0) break;
+          else if (end.compareTo(_heap.get(minPos))<= 0) break;
           else {
             swap(pos, minPos);
             pos = minPos;
@@ -125,11 +125,10 @@ public class ALHeap {
         return -1;
 
         //if no right child
-      else if (rightChild >= _heap.size())
+      else if ((rightChild >= _heap.size()) || (_heap.get(leftChild).compareTo(_heap.get(rightChild))<0 ) )
         return leftChild;
-
       else
-        return minOf(_heap.get(leftChild), _heap.get(rightChild));
+        return rightChild;
 
 }//O(1)
 
