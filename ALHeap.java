@@ -1,5 +1,5 @@
 /*
-Team OSTRTA -- Kathy Lau, Calvin Vuong, Ruochong Wu
+Team One System To Rule Them All -- Kathy Lau, Calvin Vuong, Ruochong Wu
 APCS2 PD10
 HW43 -- Heap of Trouble
 2016-05-23
