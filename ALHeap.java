@@ -20,7 +20,7 @@ public class ALHeap {
     /*****************************************************
      * default constructor  ---  inits empty heap
      *****************************************************/
-    public ALHeap() { 
+    public ALHeap() {
 	_heap = new ArrayList<Integer>();
     }
 
@@ -28,11 +28,11 @@ public class ALHeap {
 
     /*****************************************************
      * toString()  ---  overrides inherited method
-     * Returns either 
+     * Returns either
      * a) a level-order traversal of the tree (simple version)
      * b) ASCII representation of the tree (bit more complicated, much more fun)
      *****************************************************/
-    public String toString() { 
+    public String toString() {
 	String retStr = "";
 	for ( Integer i : _heap )
 	    retStr += i + " ";
@@ -45,9 +45,9 @@ public class ALHeap {
      * boolean isEmpty()
      * Returns true if no meaningful elements in heap, false otherwise
      *****************************************************/
-    public boolean isEmpty() { 
-	return _heap.isEmpty(); 
-    } //O(n)
+    public boolean isEmpty() {
+	return _heap.isEmpty();
+} //O(1)
 
 
 
@@ -57,17 +57,18 @@ public class ALHeap {
      * Postcondition: Heap remains unchanged.
      *****************************************************/
     public Integer peekMin() {
-	return _heap.get(0); // first element of the array is root, aka min
+    if (_heap.size() < 1) return null;
+    else return _heap.get(0); // first element of the array is root, aka min
     } //O(1)
 
 
 
     /*****************************************************
-     * add(Integer) 
+     * add(Integer)
      * Inserts an element in the heap
      * Postcondition: Tree maintains heap property.
      *****************************************************/
-    public void add( Integer addVal ) { 
+    public void add( Integer addVal ) {
 	int index = _heap.size();
 	_heap.add(addVal); // put new element at the end
 	// swap element with parent if parent > addval
@@ -75,7 +76,7 @@ public class ALHeap {
 	    swap( index, (index-1) / 2 );
 	    index = (index-1) / 2;
 	}
-    } //O(n)
+} //O(logn)
 
 
 
@@ -85,14 +86,13 @@ public class ALHeap {
      * Postcondition: Tree maintains heap property.
      *****************************************************/
     public Integer removeMin() {
-        if (_heap.size()==0){
-	    return null;
-	}
-	int ret = _heap.get(0);
-	removeMinH(0);
-	return ret;
-    
-    }//O(?)
+        if (_heap.size()==0)
+          return null;
+      	Integer ret = peekMin();
+      	removeMinH(0);
+      	return ret;
+
+    }//O(logN)
 
     public void removeMinH(int i){
         int c = i*2+1;
@@ -106,13 +106,13 @@ public class ALHeap {
     }
     /*****************************************************
      * minChildPos(int)  ---  helper fxn for removeMin()
-     * Returns index of least child, or 
+     * Returns index of least child, or
      * -1 if no children, or if input pos is not in ArrayList
      * Postcondition: Tree unchanged
      *****************************************************/
     private int minChildPos( int pos ) {
 	return 0;
-    }//O(?)
+}//O(1)
 
 
 
@@ -126,7 +126,7 @@ public class ALHeap {
 
     //swap for an ArrayList
     private void swap( int pos1, int pos2 ) {
-	_heap.set( pos1, _heap.set( pos2, _heap.get(pos1) ) );	
+	_heap.set( pos1, _heap.set( pos2, _heap.get(pos1) ) );
     }
     //********************************************
 
