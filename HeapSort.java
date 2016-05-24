@@ -6,9 +6,12 @@ HW44 -- Sort of Like Magic
 */
 import java.util.ArrayList;
 public class HeapSort{
+    
+    // swaps elements in positions 1 and 2, in ArrayList a
     private static void swap( ArrayList a, int pos1, int pos2 ) {
 	a.set( pos1, a.set( pos2, a.get(pos1) ) );
     }
+
     public static ArrayList<Integer> Heapify(ArrayList<Integer> a){
 	for (int count = 0 ; count<a.size(); count++){
 	    if (count*2+1 > a.size()-1){
