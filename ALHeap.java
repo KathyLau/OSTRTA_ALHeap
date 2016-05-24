@@ -70,7 +70,7 @@ public class ALHeap {
     public void add( Integer addVal ) { 
 	int index = _heap.size();
 	_heap.add(addVal); // put new element at the end
-	// swap element with leftmost element of the above level as long as leftmost is greater than addVal
+	// swap element with parent if parent > addval
 	while ( ((index-1) / 2) >= 0 && ( _heap.get((index-1) / 2) > addVal ) ) {
 	    swap( index, (index-1) / 2 );
 	    index = (index-1) / 2;
@@ -85,11 +85,25 @@ public class ALHeap {
      * Postcondition: Tree maintains heap property.
      *****************************************************/
     public Integer removeMin() {
-	return null;
+        if (_heap.size()==0){
+	    return null;
+	}
+	int ret = _heap.get(0);
+	removeMinH(0);
+	return ret;
+    
     }//O(?)
 
-
-
+    public void removeMinH(int i){
+        int c = i*2+1;
+        if (c >_heap.size()-1){
+	    _heap.remove(i);
+	    return;
+	}
+	_heap.set(i, _heap.get(c));
+	removeMinH(c);
+	return;
+    }
     /*****************************************************
      * minChildPos(int)  ---  helper fxn for removeMin()
      * Returns index of least child, or 
@@ -145,30 +159,30 @@ public class ALHeap {
 	  System.out.println(pile);
 	  pile.add(9);
 	  System.out.println(pile);
-	/*--V--------------MOVE ME DOWN------------------V---
-	  System.out.println("removing " + pile.removeMin() + "...");
-	  System.out.println(pile);
-	  System.out.println("removing " + pile.removeMin() + "...");
-	  System.out.println(pile);
-	  System.out.println("removing " + pile.removeMin() + "...");
-	  System.out.println(pile);
-	  System.out.println("removing " + pile.removeMin() + "...");
-	  System.out.println(pile);
-	  System.out.println("removing " + pile.removeMin() + "...");
-	  System.out.println(pile);
-	  System.out.println("removing " + pile.removeMin() + "...");
-	  System.out.println(pile);
-	  System.out.println("removing " + pile.removeMin() + "...");
-	  System.out.println(pile);
-	  System.out.println("removing " + pile.removeMin() + "...");
-	  System.out.println(pile);
-	  System.out.println("removing " + pile.removeMin() + "...");
-	  System.out.println(pile);
-	  System.out.println("removing " + pile.removeMin() + "...");
-	  System.out.println(pile);
-	  System.out.println("removing " + pile.removeMin() + "...");
-	  System.out.println(pile);
 
+	  System.out.println("removing " + pile.removeMin() + "...");
+	  System.out.println(pile);
+	  System.out.println("removing " + pile.removeMin() + "...");
+	  System.out.println(pile);
+	  System.out.println("removing " + pile.removeMin() + "...");
+	  System.out.println(pile);
+	  System.out.println("removing " + pile.removeMin() + "...");
+	  System.out.println(pile);
+	  System.out.println("removing " + pile.removeMin() + "...");
+	  System.out.println(pile);
+	  System.out.println("removing " + pile.removeMin() + "...");
+	  System.out.println(pile);
+	  System.out.println("removing " + pile.removeMin() + "...");
+	  System.out.println(pile);
+	  System.out.println("removing " + pile.removeMin() + "...");
+	  System.out.println(pile);
+	  System.out.println("removing " + pile.removeMin() + "...");
+	  System.out.println(pile);
+	  System.out.println("removing " + pile.removeMin() + "...");
+	  System.out.println(pile);
+	  System.out.println("removing " + pile.removeMin() + "...");
+	  System.out.println(pile);
+	/*--V--------------MOVE ME DOWN------------------V---
 	  ==|============================================|===*/
 
     }//end main()
