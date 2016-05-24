@@ -111,7 +111,22 @@ public class ALHeap {
      * Postcondition: Tree unchanged
      *****************************************************/
     private int minChildPos( int pos ) {
-	return 0;
+      int leftChild = 2*pos + 1;
+      int rightChild = 2*pos +2;
+
+      //out of bounds
+      if (pos < 0 || pos >= _heap.size() || leftChild>= _heap.size())
+        return -1;
+
+      //if no right child or if left child is less than right child
+      else if ((rightChild >= _heap.size()) ||
+              (_heap.get(leftChild).compareTo(_heap.get(rightChild))< 0))
+        return leftChild;
+
+      //
+      else
+        return rightChild;
+
 }//O(1)
 
 
