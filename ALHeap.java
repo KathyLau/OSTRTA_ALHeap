@@ -118,14 +118,12 @@ public class ALHeap {
       if (pos < 0 || pos >= _heap.size() || leftChild>= _heap.size())
         return -1;
 
-      //if no right child or if left child is less than right child
-      else if ((rightChild >= _heap.size()) ||
-              (_heap.get(leftChild).compareTo(_heap.get(rightChild))< 0))
+        //if no right child
+      else if (rightChild >= _heap.size())
         return leftChild;
-
-      //
+        
       else
-        return rightChild;
+        return minOf(_heap.get(leftChild), _heap.get(rightChild));
 
 }//O(1)
 
