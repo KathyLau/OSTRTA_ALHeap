@@ -88,22 +88,28 @@ public class ALHeap {
     public Integer removeMin() {
         if (_heap.size()==0)
           return null;
-      	Integer ret = peekMin();
-      	removeMinH(0);
+
+      	Integer ret = peekMin(); //root
+        Integer end = _heap.get(_heap.size() - 1); //rightmost bottom node
+        swap( 0, _heap.size() - 1 ); //place rightmost bottom node at root
+        _heap.remove( _heap.size() - 1); //remove node easily
+
+        int pos = 0;
+        int minPos; //holder for minChildPos
+
+        while (pos < _heap.size()) {
+          minPos = minChildPos(pos);
+          if (minPos == -1) break;
+          else if (end.compareTo(_heap.get(minPos))< 0) break;
+          else {
+            swap(pos, minPos);
+            pos = minPos;
+          }
+        }
       	return ret;
 
     }//O(logN)
 
-    public void removeMinH(int i){
-        int c = i*2+1;
-        if (c >_heap.size()-1){
-	    _heap.remove(i);
-	    return;
-	}
-	_heap.set(i, _heap.get(c));
-	removeMinH(c);
-	return;
-    }
     /*****************************************************
      * minChildPos(int)  ---  helper fxn for removeMin()
      * Returns index of least child, or
@@ -121,7 +127,7 @@ public class ALHeap {
         //if no right child
       else if (rightChild >= _heap.size())
         return leftChild;
-        
+
       else
         return minOf(_heap.get(leftChild), _heap.get(rightChild));
 
