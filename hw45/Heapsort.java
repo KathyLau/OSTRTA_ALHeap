@@ -1,3 +1,8 @@
+// Team One System to Rule Them All -- Kathy Lau, Calvin Vuong, Ruochong Wu
+// APCS2 pd10
+// HW45 -- Heaping Piles of Sordidness
+// 2016-05-25
+
 /*****************************************************
  * class Heapsort  ---  sorts in-place
  * by heapifying data, then repeatedly pulling from heap
@@ -17,9 +22,17 @@ public class Heapsort {
 
 
 	//STEP 1: heapify array contents
-
+	maxHeapify(data);
 	//STEP 2: repeatedly pull from heap until empty
+	swap(0, data.length-1, data);
 
+	int root = 0;
+	for ( int i = data.length-2; i > 0; i-- ) {
+	    int max = maxChildPos(root, i-1, data);
+	    swap(max, i, data);
+	    root = max;
+	}
+	    
 	//STEP teh LAST: return modified array
 	return data;
     }//end sort() -- O(?)
