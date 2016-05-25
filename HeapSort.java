@@ -5,6 +5,20 @@ HW44 -- Sort of Like Magic
 2016-05-24
 */
 
+/*~~~~~~~~~~~~~~~~~~~~Algorithm~~~~~~~~~~~~~~~~~~~~~~~~
+HeapSort:
+1. Convert ArrayList into Heap.
+2. Traverse through the Array, with elements already traversed making up the sorted area and the remaining elements making up the heap. 
+   The element currently being traversed is the root.
+3. For each iteration: Continuosly swap the minChild of the root with minChild's left neighbor until it is next to the root.
+4. Continue iteration, with minChild as the new root.
+
+Heapify:
+1. Traverse through the array, starting with the second element.
+2. For each element: Compare element with the element's "parent" ((index-1)/2), if element is smaller than parent, swap with parent.
+   Continue comparing element to parent and swap until either element becomes root or element is greater than parent.
+3. Traverse to next element, repeat until end of AL list reached.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 import java.util.ArrayList;
 
 public class HeapSort{
