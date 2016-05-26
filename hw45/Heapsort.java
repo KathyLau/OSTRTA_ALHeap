@@ -187,11 +187,11 @@ public class Heapsort {
 	printArr(a);
 	
 
-	/*	int[] test = {3,6,7,4,2,9};
-	Heapsort h = new Heapsort();
-	test = h.sort(test);
+	int[] test = {3,6,7,4,2,9};
+	Heapsort h2 = new Heapsort();
+	test = h2.sort(test);
 	printArr(test);
-	*/
+	
     }//end main()
 
 }//end class Heapsort
