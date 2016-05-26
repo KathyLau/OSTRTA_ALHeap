@@ -43,6 +43,14 @@ public class RunMed {
      *****************************************************/
     public void insert( int addVal )
     {
+          if ( leftHeap.size() == 0 || addVal < leftHeap.peekMax() )
+              leftHeap.add( addVal );
+          else
+              rightHeap.add( addVal );
+          if ( leftHeap.size()-rightHeap.size() > 1 )  	//balance height of both trees
+              rightHeap.add( leftHeap.removeMax() );
+          else if ( rightHeap.size()-leftHeap.size() > 1 )
+              leftHeap.add( rightHeap.removeMin() );
      }//O(?)
 
 
