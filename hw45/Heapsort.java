@@ -23,7 +23,6 @@ public class Heapsort {
 
 	//STEP 1: heapify array contents
 	maxHeapify(data);
-	printArr(data);
 	//STEP 2: repeatedly pull from heap until empty
 
 
@@ -35,7 +34,7 @@ public class Heapsort {
 		swap(root, max, data);
 		root = max;
 		max = maxChildPos(root, i-1, data);
-		printArr(data);
+
 	    }
 	}
 	    
@@ -177,7 +176,7 @@ public class Heapsort {
     //main method for testing
     public static void main( String[] args ) {
 
-	/*	int[] a = buildArray( 10, 10 );
+	int[] a = buildArray( 10, 10 );
 
 	printArr(a);
 
@@ -186,13 +185,13 @@ public class Heapsort {
 	a = h.sort(a);
 
 	printArr(a);
-	*/
+	
 
-	int[] test = {3,6,7,4,2,9};
+	/*	int[] test = {3,6,7,4,2,9};
 	Heapsort h = new Heapsort();
 	test = h.sort(test);
 	printArr(test);
-
+	*/
     }//end main()
 
 }//end class Heapsort
