@@ -18,9 +18,10 @@ public class RunMed {
     /*****************************************************
      * default constructor  ---  inits empty heap
      *****************************************************/
-    public RunMed() 
-    { 
-
+    public RunMed()
+    {
+      leftHeap  = new ALMaxHeap();
+      rightHeap = new ALMinHeap();
     }//O(1)
 
 
@@ -28,7 +29,7 @@ public class RunMed {
     /*****************************************************
      * double getMedian()  ---  returns median of dataset
      *****************************************************/
-    public double getMedian() 
+    public double getMedian()
     {
 
     }//O(1)
@@ -37,11 +38,11 @@ public class RunMed {
 
     /*****************************************************
      * insert(int)  ---  adds a new element to the dataset
-     * postcondition: dataset is maintained such that 
+     * postcondition: dataset is maintained such that
      *                getMedian() can run in constant time
      *****************************************************/
     public void insert( int addVal )
-    {   
+    {
      }//O(?)
 
 
@@ -50,9 +51,9 @@ public class RunMed {
      * boolean isEmpty()  ---  tells whether a median may be calculated
      * postcondition: dataset structure unchanged
      *****************************************************/
-    public boolean isEmpty() 
+    public boolean isEmpty()
     {
-
+      return  leftHeap.size() + rightHeap.size() == 0;
     }//O(?)
 
 
@@ -82,10 +83,9 @@ public class RunMed {
 
 
     /*****************************************************
-     * 
+     *
      *****************************************************/
     // (  )
     // {
     // 	/*** YOUR IMPLEMENTATION HERE ***/
     // }//O(?)
-
