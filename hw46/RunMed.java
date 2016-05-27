@@ -65,7 +65,7 @@ public class RunMed {
               rightHeap.add( leftHeap.removeMax() );
           else if ( rightHeap.size()-leftHeap.size() > 1 )
               leftHeap.add( rightHeap.removeMin() );
-     }//O(?)
+     }//O(logn)
 
 
 
