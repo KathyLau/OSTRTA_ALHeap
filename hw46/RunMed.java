@@ -1,3 +1,10 @@
+/*
+Team One System To Rule Them All -- Kathy Lau, Calvin Vuong, Ruochong Wu
+APCS2 PD10
+HW46 -- Running M[edi]an
+2016-05-23
+*/
+
 /*****************************************************
  * class RunMed
  * Implements an online algorithm to track the median of a growing dataset
@@ -76,7 +83,7 @@ public class RunMed {
     //main method for testing
     public static void main( String[] args ) {
 
-	/*~~~V~~~~~~~~~~~~move~me~down~~~~~~~~~~~~~V~~~
+
         RunMed med = new RunMed();
 
         med.insert(1);
@@ -89,6 +96,7 @@ public class RunMed {
 	System.out.println( med.getMedian() ); //4
         med.insert(9);
 	System.out.println( med.getMedian() ); //5
+	/*~~~V~~~~~~~~~~~~move~me~down~~~~~~~~~~~~~V~~~
 	~~~~~|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|~~~*/
 
     }//end main()
