@@ -29,8 +29,15 @@ public class RunMed {
     /*****************************************************
      * double getMedian()  ---  returns median of dataset
      *****************************************************/
-    public double getMedian()
-    {
+    public double getMedian() {
+	if ( isEmpty() )
+	    throw new NoSuchElementException();
+	else if ( leftHeap.size() == rightHeap.size() )
+	    return ( leftHeap.peekMax() + rightHeap.peekMin() ) / 2.0;
+	else if ( leftHeap.size() > rightHeap.size() )
+	    return leftHeap.peekMax();
+	else
+	    return rightHeap.peekMin();
 
     }//O(1)
 
@@ -41,12 +48,12 @@ public class RunMed {
      * postcondition: dataset is maintained such that
      *                getMedian() can run in constant time
      *****************************************************/
-    public void insert( int addVal )
-    {
+    public void insert( int addVal ){
           if ( leftHeap.size() == 0 || addVal < leftHeap.peekMax() )
               leftHeap.add( addVal );
           else
               rightHeap.add( addVal );
+
           if ( leftHeap.size()-rightHeap.size() > 1 )  	//balance height of both trees
               rightHeap.add( leftHeap.removeMax() );
           else if ( rightHeap.size()-leftHeap.size() > 1 )
@@ -62,7 +69,7 @@ public class RunMed {
     public boolean isEmpty()
     {
       return  leftHeap.size() + rightHeap.size() == 0;
-    }//O(?)
+    }//O(1)
 
 
 
