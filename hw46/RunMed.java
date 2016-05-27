@@ -7,7 +7,7 @@
  *  - min of right heap (upper range)
  *  - mean of heap roots
  *****************************************************/
-
+import java.util.NoSuchElementException;
 public class RunMed {
 
     //instance vars
